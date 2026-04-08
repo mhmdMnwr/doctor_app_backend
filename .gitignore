@@ -58,6 +58,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # docs
 README.md
 README_FRONTEND.md
+README_FRONT_SIMPLE.md
 
 test.http
 test
