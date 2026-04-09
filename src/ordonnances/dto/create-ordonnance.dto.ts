@@ -1,8 +1,8 @@
 import { Type } from 'class-transformer';
 import {
-  ArrayMinSize,
   IsArray,
   IsNotEmpty,
+  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -13,11 +13,11 @@ export class CreateOrdonnanceDto {
   @IsNotEmpty()
   patientId!: string;
 
+  @IsOptional()
   @IsArray()
-  @ArrayMinSize(1)
   @ValidateNested({ each: true })
   @Type(() => MedicineItemDto)
-  medicines!: MedicineItemDto[];
+  medicines?: MedicineItemDto[];
 
   @IsString()
   @IsNotEmpty()

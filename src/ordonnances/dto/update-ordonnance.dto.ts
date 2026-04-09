@@ -1,6 +1,5 @@
 import { Type } from 'class-transformer';
 import {
-  ArrayMinSize,
   IsArray,
   IsOptional,
   IsString,
@@ -15,7 +14,6 @@ export class UpdateOrdonnanceDto {
 
   @IsOptional()
   @IsArray()
-  @ArrayMinSize(1)
   @ValidateNested({ each: true })
   @Type(() => MedicineItemDto)
   medicines?: MedicineItemDto[];

@@ -1,11 +1,11 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class MedicineItemDto {
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  medicine!: string;
+  medicine?: string;
 
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  dosage!: string;
+  dosage?: string;
 }
