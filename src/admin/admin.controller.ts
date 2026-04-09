@@ -23,6 +23,15 @@ export class AdminController {
     return this.adminService.getMe(user.id);
   }
 
+  @Get('doctor-name')
+  getDoctorName(@Req() req: Request) {
+    const user = req['user'] as { id: string; username: string } | undefined;
+    if (!user?.id) {
+      throw new UnauthorizedException('Invalid token payload');
+    }
+    return this.adminService.getDoctorName();
+  }
+
   @Put('me')
   updateMe(@Req() req: Request, @Body() updateAdminDto: UpdateAdminDto) {
     const user = req['user'] as { id: string; username: string } | undefined;

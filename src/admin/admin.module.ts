@@ -23,6 +23,7 @@ export class AdminModule implements NestModule {
     consumer.apply(JwtMiddleware).forRoutes(
       { path: 'admin/me', method: RequestMethod.GET },
       { path: 'admin/me', method: RequestMethod.PUT },
+      { path: 'admin/doctor-name', method: RequestMethod.GET },
     );
   }
 }

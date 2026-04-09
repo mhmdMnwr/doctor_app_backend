@@ -53,6 +53,7 @@ async function bootstrap() {
     {
       username: adminUsername,
       password: adminHashedPassword,
+      role: 'doctor',
       tokenVersion: 0,
       address: 'Main Clinic',
       phoneNumber: '0555000000',

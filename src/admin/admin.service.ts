@@ -28,6 +28,19 @@ export class AdminService {
     return rest;
   }
 
+  async getDoctorName() {
+    const doctor = await this.adminModel.findOne({ role: 'doctor' }).exec();
+    if (!doctor) {
+      throw new NotFoundException('Doctor not found');
+    }
+
+    return {
+      name: doctor.username,
+      address: doctor.address ?? null,
+      phoneNumber: doctor.phoneNumber ?? null,
+    };
+  }
+
   async updateMe(id: string, updateAdminDto: UpdateAdminDto) {
     const admin = await this.findById(id);
     if (!admin) {

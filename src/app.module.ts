@@ -9,6 +9,7 @@ import { OrdonnancesModule } from './ordonnances/ordonnances.module';
 import { CertificatesModule } from './certificates/certificates.module';
 import { AnalyzesModule } from './analyzes/analyzes.module';
 import { PatientsModule } from './patients/patients.module';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { PatientsModule } from './patients/patients.module';
     CertificatesModule,
     AnalyzesModule,
     PatientsModule,
+    ChatbotModule,
   ],
   controllers: [AppController],
   providers: [AppService],
