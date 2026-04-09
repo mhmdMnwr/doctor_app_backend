@@ -21,13 +21,10 @@ type GeminiGenerateContentResponse = {
 
 @Injectable()
 export class ChatbotService {
-  private readonly defaultModel = 'gemini-2.5-flash-lite';
-
   constructor(private readonly configService: ConfigService) {}
 
   async sendMessage(dto: ChatbotMessageDto) {
-    const model =
-      this.configService.get<string>('GEMINI_MODEL') ?? this.defaultModel;
+    const model = this.getModel();
     const apiKey = this.getApiKey();
 
     const body: Record<string, unknown> = {
@@ -96,6 +93,18 @@ export class ChatbotService {
         reply,
       },
     };
+  }
+
+  private getModel(): string {
+    const model =
+      this.configService.get<string>('GEMINI_MODEL') ??
+      this.configService.get<string>('Gemini_MODEL');
+
+    if (!model?.trim()) {
+      throw new InternalServerErrorException('Gemini model is not configured');
+    }
+
+    return model.trim();
   }
 
   private getApiKey(): string {
