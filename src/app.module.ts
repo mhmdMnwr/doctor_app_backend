@@ -10,6 +10,7 @@ import { CertificatesModule } from './certificates/certificates.module';
 import { AnalyzesModule } from './analyzes/analyzes.module';
 import { PatientsModule } from './patients/patients.module';
 import { ChatbotModule } from './chatbot/chatbot.module';
+import { DrugModule } from './drugs/drug.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ChatbotModule } from './chatbot/chatbot.module';
     AnalyzesModule,
     PatientsModule,
     ChatbotModule,
+    DrugModule,
   ],
   controllers: [AppController],
   providers: [AppService],
